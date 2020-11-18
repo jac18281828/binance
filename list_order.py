@@ -1,6 +1,6 @@
 from binance_order import binance_order
 
-import json,sys
+import json,sys,time
 
 if __name__ == '__main__':
 
@@ -12,9 +12,7 @@ if __name__ == '__main__':
                 orderapi = binance_order(apikey)
 
                 order_param = {
-                    'symbol': 'BTCUSDT',
-                    'orderId': 317834,
-                    'timestamp': 1600000000,
+                    'timestamp': int(time.time()-86400),
                 }
 
                 orderinfo = orderapi.list(order_param)

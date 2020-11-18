@@ -13,7 +13,7 @@ class binance_order(binance_request):
         return json.loads(result.decode())
 
     def list(self, order_param):
-        return self.fetch('/v3/order', order_param)
+        return self.fetch('/v3/openOrders', order_param)
     
     def cancel(self, order_param):
         return self.delete('/v3/order', order_param)
