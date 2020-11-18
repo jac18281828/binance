@@ -1,6 +1,6 @@
 from binance_order import binance_order
 
-import json,sys
+import sys,time,json
 
 if __name__ == '__main__':
 
@@ -11,21 +11,16 @@ if __name__ == '__main__':
                 apikey = json.load(keyfile)
                 orderapi = binance_order(apikey)
 
-                order = {
+                order_param = {
                     'symbol': 'BTCUSDT',
-                    'side': 'BUY',
-                    'type': 'LIMIT',
-                    'timeInForce': 'GTC',
-                    'quantity': 0.01,
-                    'price': 9000,
-                    'recvWindow': 5000
+                    'orderId': 317834,
+                    'timestamp': int(time.time()-86400)
                 }
 
-
-                orderinfo = orderapi.submit(order)
+                orderinfo = orderapi.cancel(order_param)
 
                 print("Order Result = %s" % orderinfo)
         except Exception as e:
-            print("Failed. "+repr(e))
+            print("Failed. "+str(e))
     else:
         print('apikey is required')
