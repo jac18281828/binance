@@ -24,7 +24,9 @@ if __name__ == '__main__':
 
                 orderinfo = orderapi.test(order)
 
-                print("Order Result = %s" % json.dumps(orderinfo, indent=4))
+                print(orderinfo)
+
+                #print("Order Result = %s" % json.dumps(orderinfo, indent=4))
         except Exception as e:
             print("Failed. "+str(e))
     else:
