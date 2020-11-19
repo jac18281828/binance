@@ -11,19 +11,9 @@ if __name__ == '__main__':
                 apikey = json.load(keyfile)
                 orderapi = binance_order(apikey)
 
-                order = {
-                    'symbol': 'BTCUSDT',
-                    'side': 'BUY',
-                    'type': 'LIMIT',
-                    'timeInForce': 'GTC',
-                    'price': 9000,
-                    'quantity': 0.01,
-                    'recvWindow': 5000
-                }
+                listen_key = orderapi.listen_key()
 
-
-                orderinfo = orderapi.submit(order)
-                print("Order Result = %s" % orderinfo)
+                print("Result = %s" % orderinfo)
         except Exception as e:
             print("Failed. "+repr(e))
     else:

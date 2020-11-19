@@ -72,16 +72,16 @@ class binance_request:
 
         post_data = post_param + '&' + ('signature=%s' % api_signature)
 
-        api_request = urllib.request.Request(resource, data=post_data.encode('utf-8'))
-
         apikey = self.apikey['key']
-        
+
+        api_request = urllib.request.Request(resource, data=post_data.encode('utf-8'))
         api_request.add_header('X-MBX-APIKEY', apikey)
 
         with urllib.request.urlopen(api_request, context=ssl.create_default_context(cafile=certifi.where())) as request_stream:
             return request_stream.read()
 
         raise RuntimeError("Request failed!")
+
 
     def fetch(self, endpoint, params):
         binance_request = self.build(params)
@@ -106,6 +106,5 @@ class binance_request:
             return request_stream.read()
 
         raise RuntimeError("Request failed!")
-
 
         
