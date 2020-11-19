@@ -1,5 +1,6 @@
 # binance power toys
-# example code for placing orders and listening to the user data stream
+
+## example code for placing orders and listening to the user data stream
 
 ```
 https://testnet.binance.vision/api/v3/userDataStream
@@ -16,7 +17,8 @@ connect wss://testnet.binance.vision/ws/lU5josyu0Xmpaz0TLLjxxUhJy280HLUFCaK0B60X
 ```
 
 
-# place order
+## place order
+
 ```
 ✔ ~/sandbox/binance [main|●1✚ 4] 
 15:57 $ python3 order.py bi_apikey.json 
@@ -24,7 +26,7 @@ Order Result = {'symbol': 'BTCUSDT', 'orderId': 339230, 'orderListId': -1, 'clie
 
 ```
 
-# cancel order
+## cancel order
 
 ```
 ✔ ~/sandbox/binance [main|●1✚ 4] 
@@ -33,3 +35,9 @@ Order Result = b'{"symbol":"BTCUSDT","origClientOrderId":"daa3Lntyw5phO7yGkmkUzn
 ```
 
 
+## order with fill
+
+```
+12:43 $ python3 order.py bi_apikey.json 
+Order Result = {'symbol': 'BTCUSDT', 'orderId': 336603, 'orderListId': -1, 'clientOrderId': 'lcEHHwRZhTD3iM02LtS9ma', 'transactTime': 1605811425531, 'price': '18000.00000000', 'origQty': '0.01000000', 'executedQty': '0.01000000', 'cummulativeQuoteQty': '130.00000000', 'status': 'FILLED', 'timeInForce': 'GTC', 'type': 'LIMIT', 'side': 'BUY', 'fills': [{'price': '13000.00000000', 'qty': '0.01000000', 'commission': '0.00000000', 'commissionAsset': 'BTC', 'tradeId': 991}]}
+```
